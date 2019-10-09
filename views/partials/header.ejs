@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>YelpCamp</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://kit.fontawesome.com/1b20de2c62.js"></script>
+		<link rel="stylesheet" href="/stylesheets/main.css">
+	</head>
+	<body>
+		<Nav id="mainnavbar" class="container navbar navbar-dark navbar-expand-md py-0 pl-4 fixed-top bg-dark">
+          <a href="/" class="navbar-brand display-1 font-weight-bolder"> <i class="fas fa-campground"></i> Kylo </a>
+          <button class=" navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navLinks">
+              <ul class="navbar-nav nav justify-content-end">
+				  <% if(!currentUser){ %>
+				  <li class="nav-item">
+                    <a href="/campgrounds" class="nav-link btn btn-dark my-2 mx-4 text-info font-weight-bold bg-dark">CAMPGROUNDS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/login" class="nav-link btn btn-dark my-2 mx-4 text-warning font-weight-bold bg-dark">LOGIN</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/register" class="nav-link btn btn-dark my-2 mx-4 text-success font-weight-bold bg-dark">SIGN UP</a>
+                  </li>
+				  
+				  <% } else { %>
+				  <li class="nav-item d-flex align-content-start">
+                    <a href="/campgrounds" class="nav-link btn btn-dark my-2 mx-4 text-info font-weight-bold bg-dark">CAMPGROUNDS</a></li>
+				  <li class="nav-item"><a class="nav-link btn btn-dark my-2 mx-4 text-warning font-weight-bold bg-dark">WELCOME <%= currentUser.username %></a>				  		  </li>
+                  <li class="nav-item">
+                    <a href="/logout" class="nav-link btn btn-dark my-2 mx-4 text-danger  font-weight-bold bg-dark">LOGOUT</a>
+                  </li>
+				  <% } %>
+              </ul>
+          </div>
+      </Nav>
+	

@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+<div id="campspecs" class="container">
+	<div class="row my-5">
+		<div class="col-md-3">
+			<p class="lead"></p>
+			<div class="list-group">
+				<li class="list-group-item btn btn-info btn-outline-info list-						group-item-info active">Info 1</li>
+				<li class="list-group-item btn btn-info btn-outline-info list-						group-item-info">Info 2</li>
+				<li class="list-group-item btn btn-info btn-outline-info list-						group-item-info">Info 3</li>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<img class="img-responsive" width=100% src="<%=campground.image%>">
+				<div class="caption-full">
+					<h4 class="float-right">$9.00/night</h4>
+					<h4 class="text-left"><a><%=campground.name%></a></h4>
+					<p><%= campground.description %></p>
+				</div>
+			</div>
+			<div class="well">
+				<div class="text-right">
+				<a class="btn btn-success" 														href="/campgrounds/<%= campground._id %>/comments/new">Add New 					Comment</a>
+				</div>
+				<hr>
+				<% campground.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+						<p>
+							<strong><%= comment.author.username %></strong>
+						</p>
+						<span class="float-right">10 days ago</span>
+						<p>
+							" <%= comment.text %> "
+						</p>
+					</div>
+				
+				</div>
+			    <% }) %>
+			</div>
+		</div>
+	</div>
+	<a style="mt-2" href="/campgrounds">Back to Campgrounds</a>
+</div>
+
+
+
+
+<% include ../partials/footer %>
