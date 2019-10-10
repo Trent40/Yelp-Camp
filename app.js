@@ -143,11 +143,16 @@ app.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
            console.log(err);
            res.redirect("/campgrounds");
        } else {
+		   let author = {
+			   id: req.user._id,
+			   username: req.user.username
+		   }
+		   req.body.comment.author = author
         Comment.create(req.body.comment, function(err, comment){
            if(err){
                console.log(err);
            } else {
-               campground.comments.push(comment);
+               campground.comments.push(comment._id);
                campground.save();
                res.redirect('/campgrounds/' + campground._id);
            }
