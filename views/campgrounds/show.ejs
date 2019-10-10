@@ -5,14 +5,15 @@
 		<div class="col-md-3">
 			<p class="lead"></p>
 			<div class="list-group">
-				<li class="list-group-item btn btn-info btn-outline-info list-						group-item-info active">Info 1</li>
-				<li class="list-group-item btn btn-info btn-outline-info list-						group-item-info">Info 2</li>
-				<li class="list-group-item btn btn-info btn-outline-info list-						group-item-info">Info 3</li>
+				<li class="list-group-item btn btn-info btn-outline-info 						list-group-item-info active">Info 1</li>
+				<li class="list-group-item btn btn-info btn-outline-info 						list-group-item-info">Info 2</li>
+				<li class="list-group-item btn btn-info btn-outline-info 						list-group-item-info">Info 3</li>
 			</div>
 		</div>
 		<div class="col-md-9">
 			<div class="thumbnail">
-				<img class="img-responsive" width=100% src="<%=campground.image%>">
+			<img class="img-responsive" width=100% 
+				 src="<%=campground.image%>">
 				<div class="caption-full">
 					<h4 class="float-right">$9.00/night</h4>
 					<h4 class="text-left"><a><%=campground.name%></a></h4>
@@ -21,7 +22,7 @@
 			</div>
 			<div class="well">
 				<div class="text-right">
-				<a class="btn btn-success" 														href="/campgrounds/<%= campground._id %>/comments/new">Add New 					Comment</a>
+				<a class="btn btn-success" 									href="/campgrounds/<%=campground._id %>/comments/new">Add New Comment</a>
 				</div>
 				<hr>
 				<% campground.comments.forEach(function(comment){ %>
@@ -35,7 +36,6 @@
 							" <%= comment.text %> "
 						</p>
 					</div>
-				
 				</div>
 			    <% }) %>
 			</div>

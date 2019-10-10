@@ -32,23 +32,28 @@ router.post("/", isLoggedIn, function(req, res){
            console.log(err);
            res.redirect("/campgrounds");
        } else {
+           //new added code
+           let author = { 
+               id: req.user._id,
+               username: req.user.username
+           }
+           req.body.comment.author = author
         Comment.create(req.body.comment, function(err, comment){
            if(err){
                console.log(err);
            } else {
-			   // Add username and id to comment
-			   comment.author.id = req.user._id;
+			   comment.author.id = req.user._id,
 			   comment.author.username = req.user.username;
-			   // Save comment
 			   comment.save();
+				console.log(comment);
                campground.comments.push(comment);
                campground.save();
-			   console.log(comment);
                res.redirect('/campgrounds/' + campground._id);
            }
         });
        }
    });
+  
 });
 
 // Middleware
