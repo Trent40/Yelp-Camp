@@ -13,10 +13,16 @@
 				<h1 style="text-align:center">Edit <%= campground.name %></h1>
 						
 					<form action="/campgrounds/<%= campground._id %>?_method=PUT"method="POST">
-							<input style="width: 80%; margin: 1rem 													auto;" class="form-control" type="text" 										name="campground[name]" value="<%= campground.name%>">
-							<input style="width: 80%; margin: 2rem 													auto;" class="form-control" type="text" 										name="campground[image]" value="<%= campground.image %>">
-							<input style="width: 80%; margin: 2rem auto;" 											class="form-control" type="text" 											   name="campground[description]" value="<%= campground.description %>">
-							<button style="width: 80%; margin: 5rem auto;" 											class="btn btn-lg btn-info 														mt-2 btn-block">Submit</button>
+						
+							<input style="width: 80%; margin: 1rem auto;" class="form-control" type="text" 										       name="campground[name]" value="<%= campground.name%>">
+						
+						    <input style="width: 80%; margin: 1rem auto;" class="form-control" type="number"                                              name="campground[price]" value="<%=campground.price %>" min="0.01" step="0.01">
+						
+							<input style="width: 80%; margin: 2rem auto;" class="form-control" type="text" 										       name="campground[image]" value="<%= campground.image %>">
+						
+							<input style="width: 80%; margin: 2rem auto;" class="form-control" type="text" 											   name="campground[description]" value="<%= campground.description %>">
+						
+							<button style="width: 80%; margin: 5rem auto;" class="btn btn-lg btn-info 													mt-2 btn-block">Submit</button>
 					</form>
 					<a style="mt-2" href="/campgrounds">Back to 						Campgrounds</a>
 					<% include ../partials/footer %>
