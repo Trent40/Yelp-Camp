@@ -13,7 +13,7 @@
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navLinks">
-              <ul class="navbar-nav nav justify-content-end">
+              <ul class="navbar-nav nav justify-content-start">
 				  <% if(!currentUser){ %>
 				  <li class="nav-item">
                     <a href="/campgrounds" class="nav-link btn btn-dark my-2 mx-4 text-info font-weight-bold bg-dark">CAMPGROUNDS</a>
@@ -26,7 +26,7 @@
                   </li>
 				  
 				  <% } else { %>
-				  <li class="nav-item d-flex align-content-start">
+				  <li class="nav-item">
                     <a href="/campgrounds" class="nav-link btn btn-dark my-2 mx-4 text-info font-weight-bold bg-dark">CAMPGROUNDS</a></li>
 				  <li class="nav-item"><a class="nav-link btn btn-dark my-2 mx-4 text-warning font-weight-bold bg-dark">WELCOME <%= currentUser.username %></a>				  		  </li>
                   <li class="nav-item">
